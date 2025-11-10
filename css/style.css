@@ -545,7 +545,7 @@ button {
   overflow-x: hidden; /*запрет горизонтальной прокрутки*/
   overflow-y: auto; /*автоматическая вертикальная прокрутка*/
   z-index: 10; /*слой модального окна*/
-  transition: opacity 0.4s ease, visibility 0.4s ease;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
   padding: 3rem 0; /*внутренние отступы модального окна*/
   background: rgba(0, 0, 0, 0.5); /*цвет фона модального окна*/
 }
@@ -554,6 +554,7 @@ button {
   opacity: 1; /*непрозрачность модального окна при активном состоянии*/
   visibility: visible; /*отображение модального окна при активном состоянии*/
   pointer-events: all; /*включение взаимодействия с модальным окном при активном состоянии*/
+  transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 .modal_inner {
