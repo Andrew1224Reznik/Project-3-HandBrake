@@ -14,6 +14,7 @@
     />
     <script src="./js/modal.js" defer></script>
     <script src="./js/main_screen.js" defer></script>
+    <script src="./js/timer.js" defer></script>
   </head>
   <body>
     <header class="container header">
@@ -38,6 +39,7 @@
         <button type="button" class="button header_btn">Downloads</button>
       </div>
     </header>
+
     <main class="main">
       <section class="main_section">
         <div class="container main_content">
@@ -48,6 +50,23 @@
             selection of modern, widely supported codecs.
           </p>
           <button type="button" class="button_main">Download for Free</button>
+          <div class="timer main_display_timer">
+            <div class="timer_item block_center">
+              <div class="timer_number timer_days">18</div>
+              <div class="timer_label">Days</div>
+            </div>
+            <div class="timer_item block_center">
+              <div class="timer_number timer_hours"></div>
+              <div class="timer_label">Hours</div>
+            </div>
+            <div class="timer_item block_center">
+              <div class="timer_number timer_minutes"></div>
+              <div class="timer_label">Minutes</div>
+            </div>
+            <div class="timer_item block_center">
+              <div class="timer_number timer_seconds"></div>
+              <div class="timer_label">Seconds</div>
+            </div>
         </div>
         <img
           src="img/Image-main.png"

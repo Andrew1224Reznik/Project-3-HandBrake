@@ -60,6 +60,13 @@ button {
   border-radius: 2.4rem; /*скругление углов кнопок*/
 }
 
+.block_center {
+  display: flex; /*делает обертку модального окна флексом*/
+  justify-content: center; /*центрирует модальное окно по горизонтали*/
+  align-items: center; /*центрирует модальное окно по вертикали*/
+  flex-direction: column; /*располагает элементы модального окна в колонку*/
+}
+
 /* Шапка сайта */
 
 .header {
@@ -128,7 +135,7 @@ button {
 
 .main_section {
   padding-top: 12.4rem; /*отступ сверху у главного блока*/
-  padding-bottom: 29.1rem; /*отступ снизу у главного блока*/
+  padding-bottom: 15.6rem; /*отступ снизу у главного блока*/
   position: relative; /*позиционирование главного блока относительно других элементов*/
 }
 
@@ -168,6 +175,30 @@ button {
 .button_main:hover {
   background-color: #e0a70c; /*изменение цвета фона при наведении*/
   color: #030101; /*изменение цвета текста при наведении*/
+}
+
+.timer {
+  display: flex; /*горизонтальное положение блоков таймера */
+  gap: 10px; /* расстояние между блоками */
+  margin-top: 40px;
+}
+
+.timer_item {
+  width: 95px;
+  height: 95px;
+  background: #3b4a6b;
+  color: white;
+  border-radius: 4px;
+}
+
+.timer_number {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.timer_label {
+  font-size: 14px;
+  opacity: 0.8;
 }
 
 .main_image {
@@ -521,13 +552,6 @@ button {
 }
 
 /* Modal */
-
-.block_center {
-  display: flex; /*делает обертку модального окна флексом*/
-  justify-content: center; /*центрирует модальное окно по горизонтали*/
-  align-items: center; /*центрирует модальное окно по вертикали*/
-  flex-direction: column; /*располагает элементы модального окна в колонку*/
-}
 
 .modal {
   opacity: 0; /*прозрачность модального окна по умолчанию*/
