@@ -17,7 +17,7 @@ const numWord = (value, words) => {
 
 const updateTimer = () => {
   const date = new Date();
-  const dateDeadline = new Date("13 november 2025").getTime();
+  const dateDeadline = new Date("21 november 2025").getTime();
   const timeRemain = (dateDeadline - date) / 1000;
 
   const days = Math.floor(timeRemain / 60 / 60 / 24);
@@ -56,5 +56,3 @@ const updateTimer = () => {
 
 updateTimer();
 interval = setInterval(updateTimer, 500);
-
-console.log(numWord(0, ["Second", "Seconds"]));
