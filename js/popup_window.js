@@ -1,6 +1,8 @@
 const NOTIFICATION_DELAY = 3000; /*создаем переменную задержки появления окна*/
 const HIDE_DELAY = 30000; /*создаем переменную задержки скрытия окна*/
-const timerHide = null; /*создаем переменную чтобы сохранить туда функцию*/
+const timerHide =
+  null; /*создаем переменную чтобы сохранить туда функцию закрытия всплывающего окна через 30 секунд*/
+
 const popupWindow =
   document.querySelector(
     ".popup"
@@ -26,28 +28,44 @@ showPopupWindow();
 
 function hidePopupWindow() {
   /*создаем функцию которая спрячет всплывающее окно через 30секунд*/
-  setTimeout(() => {
+  timerHide = setTimeout(() => {
     closePopupWindow();
   }, HIDE_DELAY);
 }
 
 hidePopupWindow();
 
-// Закрытие по крестику
-closeBtn.addEventListener("click", closePopupWindow);
+function closeOnIconNotification() {
+  /*создаем функцию закрытия окна на крестик*/
+  // Закрытие по крестику
+  closeBtn.addEventListener("click", closePopupWindow);
+  clearTimeout(
+    timerHide
+  ); /*прекращаем выполнение работы функции hidePopupWindow через 30 секунд (так как окно преждевременно закрыто пользователем)*/
+}
 
-// Закрытие при клике вне окна
-document.addEventListener("click", (event) => {
-  // Проверяем: окно открыто, клик не внутри окна и не по самому popup
-  if (
-    popupWindow.classList.contains("show") /*Проверяет, открыт ли попап*/ &&
-    !event.target.closest(
-      ".popup_inner"
-    ) /*Проверяет, где именно произошёл клик, клик не внутри .popup_inner*/ &&
-    !event.target.closest(
-      ".popup"
-    ) /*Подстраховка — проверка, что клик вообще не был внутри всего блока .popup*/
-  ) {
-    closePopupWindow();
-  }
-});
+closeOnIconNotification();
+
+function closeNotification() {
+  /* создаем функцию закрытия окна по клику вне окна*/
+  // Закрытие при клике вне окна
+  document.addEventListener("click", (event) => {
+    // Проверяем: окно открыто, клик не внутри окна и не по самому popup
+    if (
+      popupWindow.classList.contains("show") /*Проверяет, открыт ли попап*/ &&
+      !event.target.closest(
+        ".popup_inner"
+      ) /*Проверяет, где именно произошёл клик, клик не внутри .popup_inner*/ &&
+      !event.target.closest(
+        ".popup"
+      ) /*Подстраховка — проверка, что клик вообще не был внутри всего блока .popup*/
+    ) {
+      closePopupWindow();
+    }
+  });
+  clearTimeout(
+    timerHide
+  ); /*прекращаем выполнение работы функции hidePopupWindow через 30 секунд (так как окно преждевременно закрыто пользователем)*/
+}
+
+closeNotification();
