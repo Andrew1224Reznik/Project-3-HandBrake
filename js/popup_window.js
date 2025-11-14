@@ -1,7 +1,5 @@
 const NOTIFICATION_DELAY = 3000; /*создаем переменную задержки появления окна*/
 const HIDE_DELAY = 30000; /*создаем переменную задержки скрытия окна*/
-const timerHide =
-  null; /*создаем переменную чтобы сохранить туда функцию закрытия всплывающего окна через 30 секунд*/
 
 const popupWindow =
   document.querySelector(
@@ -28,7 +26,7 @@ showPopupWindow();
 
 function hidePopupWindow() {
   /*создаем функцию которая спрячет всплывающее окно через 30секунд*/
-  timerHide = setTimeout(() => {
+  setTimeout(() => {
     closePopupWindow();
   }, HIDE_DELAY);
 }
@@ -39,9 +37,6 @@ function closeOnIconNotification() {
   /*создаем функцию закрытия окна на крестик*/
   // Закрытие по крестику
   closeBtn.addEventListener("click", closePopupWindow);
-  clearTimeout(
-    timerHide
-  ); /*прекращаем выполнение работы функции hidePopupWindow через 30 секунд (так как окно преждевременно закрыто пользователем)*/
 }
 
 closeOnIconNotification();
@@ -63,9 +58,6 @@ function closeNotification() {
       closePopupWindow();
     }
   });
-  clearTimeout(
-    timerHide
-  ); /*прекращаем выполнение работы функции hidePopupWindow через 30 секунд (так как окно преждевременно закрыто пользователем)*/
 }
 
 closeNotification();

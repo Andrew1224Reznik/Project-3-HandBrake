@@ -1,18 +1,16 @@
+//находим элементы таймера в HTML
 const hoursBlock = document.querySelector(".timer_hours");
 const minutesBlock = document.querySelector(".timer_minutes");
 const secondsBlock = document.querySelector(".timer_seconds");
-
 const daysBlock = document.querySelector(".timer_days");
 
+//переменная для хранения интервала
 let interval;
 
+//функция для выбора правильного слова (напр. Day/Days)
 const numWord = (value, words) => {
-  value = Math.abs(value) % 100;
-  if (value < 2) {
-    return words[0];
-  } else {
-    return words[1];
-  }
+  const v = Math.abs(Math.floor(value));
+  return v === 1 ? words[0] : words[1];
 };
 
 const updateTimer = () => {
